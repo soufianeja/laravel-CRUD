@@ -10,10 +10,16 @@
 
     <div class="container text-center">
         <div class="row">
+            @if (session('status'))
+                <div class="alert alert-succes">
+                    {{session('status')}}
+                </div>
+            @endif
             <div class="col s12">
                     <h1>AJOUTER UN ETUDIANT - CRUD Laravel</h1>
                     
-                    <form action="/inserer" method="POST">
+                    <form action="/ajouter/traitement" method="POST">
+                        @csrf
                         <div class="mb-3">
                             <label for="nom" class="form-label">Nom</label>
                             <input type="email" class="form-control" id="nom" name="nom" aria-describedby="emailHelp">
