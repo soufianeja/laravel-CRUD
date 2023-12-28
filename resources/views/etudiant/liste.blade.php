@@ -26,26 +26,18 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($etudiants as $etudiant )
                             <tr class="table-active">
-                                <td>1</td>
-                                <td>lakjf</td>
-                                <td>rl;ajd</td>
-                                <td>5eme</td>
+                                <td>{{$etudiant->id}}</td>
+                                <td>{{$etudiant->nom}}</td>
+                                <td>{{$etudiant->prenom}}</td>
+                                <td>{{$etudiant->class}}</td>
                                 <td>
                                     <a href="#" class="btn btn-info">Update</a>
                                     <a href="#" class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
-                            <tr class="table-active">
-                                <td>2</td>
-                                <td>ladskjf</td>
-                                <td>rl;asafdsjd</td>
-                                <td>5eme</td>
-                                <td>
-                                    <a href="#" class="btn btn-info">Update</a>
-                                    <a href="#" class="btn btn-danger">Delete</a>
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
             </div>

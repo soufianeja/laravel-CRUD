@@ -9,7 +9,8 @@ class EtudiantController extends Controller
 {
     public function liste_etudiant()
     {
-        return view('etudiant.liste');
+        $etudiants = Etudiant::all();
+        return view('etudiant.liste', compact('etudiants'));
     }
     public function ajouter_etudiant()
     {

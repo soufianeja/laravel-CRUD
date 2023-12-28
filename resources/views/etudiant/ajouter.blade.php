@@ -15,6 +15,13 @@
                     {{session('status')}}
                 </div>
             @endif
+
+            <ul>
+                @foreach ($errors->all() as $error )
+                    <li class="alert alert-danger">{{$error}}</li>
+                @endforeach
+            </ul>
+
             <div class="col s12">
                     <h1>AJOUTER UN ETUDIANT - CRUD Laravel</h1>
                     
@@ -22,17 +29,18 @@
                         @csrf
                         <div class="mb-3">
                             <label for="nom" class="form-label">Nom</label>
-                            <input type="email" class="form-control" id="nom" name="nom" aria-describedby="emailHelp">
+                            <input type="text" class="form-control" id="nom" name="nom" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                             <label for="pernom" class="form-label">Prenom</label>
-                            <input type="password" class="form-control" id="pernom" name="prenom">
+                            <input type="text" class="form-control" id="pernom" name="prenom">
                         </div>
                         <div class="mb-3">
                             <label for="class" class="form-label">Class</label>
-                            <input type="password" class="form-control" id="class" name="class">
+                            <input type="text" class="form-control" id="class" name="class">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
+                        <a href="/etudiant" class="btn btn-primary">Revenir a la liste des etudiants</a>
                     </form>
             </div>
         </div>
