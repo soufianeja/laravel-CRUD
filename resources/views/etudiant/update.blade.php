@@ -9,13 +9,6 @@
 <body>
 
     <div class="container text-center">
-        <div class="row">
-            @if (session('status'))
-                <div class="alert alert-success">
-                    {{session('status')}}
-                </div>
-            @endif
-
             <ul>
                 @foreach ($errors->all() as $error )
                     <li class="alert alert-danger">{{$error}}</li>
@@ -23,21 +16,22 @@
             </ul>
 
             <div class="col s12">
-                    <h1>AJOUTER UN ETUDIANT - CRUD Laravel</h1>
+                    <h1>MODIFIER UN ETUDIANT - CRUD Laravel</h1>
                     
-                    <form action="/ajouter/traitement" method="POST">
+                    <form action="/update/traitement" method="POST">
                         @csrf
+                        <input type="hidden" value="{{$etudiant->id}}" name='id'>
                         <div class="mb-3">
                             <label for="nom" class="form-label">Nom</label>
-                            <input type="text" class="form-control" id="nom" name="nom" aria-describedby="emailHelp">
+                            <input type="text" class="form-control" id="nom" name="nom" value="{{$etudiant->nom}}">
                         </div>
                         <div class="mb-3">
                             <label for="pernom" class="form-label">Prenom</label>
-                            <input type="text" class="form-control" id="pernom" name="prenom">
+                            <input type="text" class="form-control" id="pernom" name="prenom" value="{{$etudiant->prenom}}">
                         </div>
                         <div class="mb-3">
                             <label for="class" class="form-label">Class</label>
-                            <input type="text" class="form-control" id="class" name="class">
+                            <input type="text" class="form-control" id="class" name="class" value="{{$etudiant->class}}">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <a href="/etudiant" class="btn btn-primary">Revenir a la liste des etudiants</a>

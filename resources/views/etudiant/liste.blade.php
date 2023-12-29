@@ -8,7 +8,16 @@
 </head>
 <body>
 
+
+    
+    
     <div class="container text-center">
+        <div class="row">
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{session('status')}}
+                </div>
+            @endif
         <div class="row">
             <div class="col s12">
                     <h1>CRUD Laravel</h1>
@@ -33,7 +42,7 @@
                                 <td>{{$etudiant->prenom}}</td>
                                 <td>{{$etudiant->class}}</td>
                                 <td>
-                                    <a href="#" class="btn btn-info">Update</a>
+                                    <a href="/update-etudiant/{{$etudiant->id}}" class="btn btn-info">Update</a>
                                     <a href="#" class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>

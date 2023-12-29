@@ -12,10 +12,12 @@ class EtudiantController extends Controller
         $etudiants = Etudiant::all();
         return view('etudiant.liste', compact('etudiants'));
     }
+
     public function ajouter_etudiant()
     {
         return view('etudiant.ajouter');
     }
+
     public function ajouter_etudiant_traitement(Request $request)
     {
         $request->validate([
@@ -29,5 +31,25 @@ class EtudiantController extends Controller
         $etudiant->class=$request->class;
         $etudiant->save();
         return redirect('/ajouter')->with('status','etudiant ajouter avec succes.');
+    }
+
+    public function update_etudiant($id){
+        $etudiant = Etudiant::find($id);
+        return view('etudiant.update',compact('etudiant'));
+    }
+
+    public function update_etudiant_traitement(Request $request)
+    {
+        $request->validate([
+            'nom' => 'required',
+            'prenom' => 'required',
+            'class' => 'required',
+        ]);
+        $etudiant= Etudiant::where('id',$request->id)->update([
+            "nom"=>$request->nom,
+            "prenom"=>$request->prenom,
+            "class"=>$request->class
+            ]);
+        return redirect('/etudiant')->with('status','etudiant modifier avec succes.');
     }
 }
