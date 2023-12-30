@@ -12,15 +12,15 @@
     
     
     <div class="container text-center">
-        <div class="row">
-            @if (session('status'))
-                <div class="alert alert-success">
-                    {{session('status')}}
-                </div>
-            @endif
-        <div class="row">
             <div class="col s12">
-                    <h1>CRUD Laravel</h1>
+                <h1>CRUD Laravel</h1>
+                <div class="row">
+                @if (session('status'))
+                    <div class="alert alert-success">
+                        {{session('status')}}
+                    </div>
+                @endif
+                <div class="row">
                     <hr>
                     <a href="/ajouter" class="btn btn-primary"> ajouter un etudiant</a>
                     <hr>
@@ -49,6 +49,9 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <div class="d-flex justify-content-center">
+                    {{$etudiants->links()}}
+                    </div>
             </div>
         </div>
     </div>

@@ -9,7 +9,7 @@ class EtudiantController extends Controller
 {
     public function liste_etudiant()
     {
-        $etudiants = Etudiant::all();
+        $etudiants = Etudiant::paginate(8);
         return view('etudiant.liste', compact('etudiants'));
     }
 

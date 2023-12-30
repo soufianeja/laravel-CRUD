@@ -9,12 +9,7 @@
 <body>
 
     <div class="container text-center">
-        <div class="row">
-            @if (session('status'))
-                <div class="alert alert-success">
-                    {{session('status')}}
-                </div>
-            @endif
+        
 
             <ul>
                 @foreach ($errors->all() as $error )
@@ -24,7 +19,12 @@
 
             <div class="col s12">
                     <h1>AJOUTER UN ETUDIANT - CRUD Laravel</h1>
-                    
+                    <div class="row">
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{session('status')}}
+                            </div>
+                        @endif
                     <form action="/ajouter/traitement" method="POST">
                         @csrf
                         <div class="mb-3">
